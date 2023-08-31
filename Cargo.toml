@@ -1,0 +1,18 @@
+[package]
+name = "mmm"
+version = "0.1.0"
+authors = ["ZZQ <18736271057@163.com>"]
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+slint = "1"
+rodio = "0.17"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", default-features = false, features = ["blocking", "rustls-tls", "json"] }
+log = "0.4"
+env_logger = "0.10"
+ncm-api = { git = "https://github.com/gmg137/netease-cloud-music-api.git", tag = "1.2.0", package = "netease-cloud-music-api" }
+
+[build-dependencies]
+slint-build = "1.0"

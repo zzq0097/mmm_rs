@@ -1,0 +1,42 @@
+import { Button, VerticalBox , ListView, HorizontalBox, GridBox} from "std-widgets.slint";
+
+export component Player inherits Rectangle {
+    height: 83px;
+    padding: 0;
+    Rectangle {
+        y: 0;
+        height: 3px;
+        background: black;
+    }
+
+    Image {
+        x: 0;
+        y: 3px;
+        height: 80px;
+        width: 80px;
+        source: @image-url("img/OIG.jpg");
+    }
+
+    HorizontalBox {
+        width: 420px;
+        x: 80px;
+        Rectangle {
+            Text {
+                text: "◀";
+            }
+        }
+        Rectangle {
+            Text {
+                text: "⏯";
+            }
+        }
+        Rectangle {
+            Text {
+                text: "▶";
+            }
+        }
+    }
+
+}
+
+

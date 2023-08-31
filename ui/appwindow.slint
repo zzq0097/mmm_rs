@@ -1,0 +1,49 @@
+import { Player } from "./player.slint";
+import { ListView , HorizontalBox} from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    callback play();
+    in-out property <int> idx;
+    in-out property <[{name: string, author: string}]> playlist : [{name: "名称", author: "作者"}];
+    title: "Mmm";
+    height: 800px;
+    width: 500px;
+
+    player := Player {
+        y: parent.height - self.height;
+    }
+
+    ListView { 
+        y: 0;
+        height: parent.height - player.height;
+
+        for i in 100: Rectangle {
+            height: 30px;
+            TouchArea {
+                HorizontalBox { 
+                    Text {
+                        text: "" + (i + 1);
+                    }
+                    Text {
+                        text: "歌名";
+                    }
+                    Text {
+                        text: "歌手";
+                    }
+                    Image {
+                        source: @image-url("img/micro_wyy.png");
+                    }
+                }
+                
+
+                clicked => {
+                    idx = i;
+                    parent.background = #aaa;
+                    play();
+                }
+
+                
+            }
+        }
+    }
+}
